@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  </head>
+  <body>
+    <div class="container">
+        <div class="row d-flex align-items-center justify-content-center" style="height: 100vh; width:100%">
+            <div class="col-md-8">
+                <div class="card border-0 shadow rounded">
+                  <div class="card-header mb-3">
+                    <strong>Aplikasi PeSaT - Pencatatan Siswa Terlambat</strong>
+                  </div>
+                  <div class="card-body">
+                    <button type="button" class="btn btn-danger float-right" onclick="logout()">Logout</button>
+                    <button type="button" class="btn btn-primary float-right" id="tambahBaris">Tambah Data</button>
+                    <table class="table" id="tabelData">
+                      <thead>
+                          <tr>
+                              <th>Nama Siswa</th>
+                              <th>Kelas</th>
+                              <th>Keterangan</th>
+                              <th>Aksi</th>
+                          </tr>
+                      </thead>
+                      <tbody id="tabelBody">
+                      <tr>
+                          <td>
+                            <select class="form-control" id="pilihan" name="kelas">
+                              <option value="">Pilih Kelas</option>
+                              <option value="X PPLG">X PPLG</option>
+                              <option value="X DKV">X DKV</option>
+                              <option value="X TJKT 1">X TJKT 1</option>
+                              <option value="X TJKT 2">X TJKT 2</option>
+                            </select>
+                          </td>
+                          <td>                   
+                            <input type="text" class="form-control" placeholder="Nama Siswa">
+                          </td>
+                          <!-- <td>
+                            <div class="form-group d-none" id="pilihan-1">
+                              <select name="nama" class="form-control" required>
+                                  <option value="" selected>-Pilihan-</option>
+                                  <option value="ADRIAN JONATHAN KANZIL">ADRIAN JONATHAN KANZIL</option>
+                                  <option value="AISYAH SEPTHIA PUTRI RAMADHANI">AISYAH SEPTHIA PUTRI RAMADHANI</option>
+                                  <option value="ARDHIA REGINA CAHYANI">ARDHIA REGINA CAHYANI</option>
+                                  <option value="BAGUS JOSHUA PARABAN">BAGUS JOSHUA PARABAN</option>
+                                  <option value="BAMBANG SURYADINATA">BAMBANG SURYADINATA</option>
+                                  <option value="BENA AZALIA">BENA AZALIA</option>
+                                  <option value="DARREN MISYANTONO PUTRA">DARREN MISYANTONO PUTRA</option>
+                                  <option value="FAREL ALEXANDER MOYA">FAREL ALEXANDER MOYA</option>
+                                  <option value="FATHIR FATURRAHMAN">FATHIR FATURRAHMAN</option>
+                                  <option value="FATIH RIZQULWA IRFANSYAH">FATIH RIZQULWA IRFANSYAH</option>
+                                  <option value="FAVIAN EVAN WIBOWO">FAVIAN EVAN WIBOWO</option>
+                                  <option value="FERDIANSYAH ACHMAD FAUZAN">FERDIANSYAH ACHMAD FAUZAN</option>
+                                  <option value="HAFIZH IFTIKHAR UTAMA">HAFIZH IFTIKHAR UTAMA</option>
+                                  <option value="JAVIARE SAMUEL SAMONA TAMIN">JAVIARE SAMUEL SAMONA TAMIN</option>
+                                  <option value="JERICHO ALEA ZIMRAN">JERICHO ALEA ZIMRAN</option>
+                                  <option value="JESSYCA VALENCIA SAMBOUW">JESSYCA VALENCIA SAMBOUW</option>
+                                  <option value="JOHAN NUR HIDAYAT">JOHAN NUR HIDAYAT</option>
+                                  <option value="KHAROMAH DWI NINGSIH">KHAROMAH DWI NINGSIH</option>
+                                  <option value="MUHAMAD BHAKTI ANUGRAH">MUHAMAD BHAKTI ANUGRAH</option>
+                                  <option value="MUHAMAD NABIL NUR">MUHAMAD NABIL NUR</option>
+                                  <option value="MUHAMMAD SHABIR RIZQULLAH">MUHAMMAD SHABIR RIZQULLAH</option>
+                                  <option value="MUHAMMAD ZAKI">MUHAMMAD ZAKI</option>
+                                  <option value="NATTY MARIA SASHERLINA">NATTY MARIA SASHERLINA</option>
+                                  <option value="NAZRIL WISNUYASA">NAZRIL WISNUYASA</option>
+                                  <option value="NAZWAR SATRIYADI">NAZWAR SATRIYADI</option>
+                                  <option value="REVANZA RAIHAN RISQULLAH">REVANZA RAIHAN RISQULLAH</option>
+                                  <option value="RHIFANNY AQILAH">RHIFANNY AQILAH</option>
+                                  <option value="SALSABILLA AYUDIA PUTRI">SALSABILLA AYUDIA PUTRI</option>
+                                  <option value="YOGI ADAM PRATAMA">YOGI ADAM PRATAMA</option>
+                              </select>
+                            </div>                            
+                          </td> -->
+                          <td>
+                            <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                              <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off" checked>
+                              <label class="btn btn-outline-primary" for="btncheck1">Terlambat</label>
+                            </div>
+                          </td>
+                          <td>
+                            <button type="button" class="btn btn-danger btn-remove"><i class="bi bi-trash-fill"></i></button>
+                          </td>
+                      </tr>
+                          <!-- Tambahkan baris sebanyak yang Anda perlukan -->
+                      </tbody>
+                    </table>
+                  </div>
+                <button type="submit" class="btn btn-success text-center">Kirim data</button>
+            </div>
+          </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+    <script>
+        function logout() {
+            console.log("Berhasil logout");
+            window.location.href = "login.html";
+            history.pushState(null, null, "login.html");
+        }
+    </script>
+
+    <script>
+      document.getElementById('tambahBaris').addEventListener('click', function() {
+        var tbody = document.getElementById('tabelBody');
+        var newRow = document.createElement('tr');
+    
+        newRow.innerHTML = `
+        <td>
+          <select class="form-control" id="pilihan" name="kelas">
+            <option value="">Pilih Kelas</option>
+            <option value="X PPLG">X PPLG</option>
+            <option value="X DKV">X DKV</option>
+            <option value="X TJKT 1">X TJKT 1</option>
+            <option value="X TJKT 2">X TJKT 2</option>
+          </select>
+        <td>
+            <input type="text" class="form-control" placeholder="Nama Siswa">
+        </td>
+        <td>
+            <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                <input type="checkbox" class="btn-check" autocomplete="off" checked>
+                <label class="btn btn-outline-primary">Terlambat</label>
+            </div>
+        </td>
+        <td>
+          <button type="button" class="btn btn-danger btn-remove"><i class="bi bi-trash-fill"></i></button>
+        </td>
+        `;
+    
+        tbody.appendChild(newRow);
+    });
+    document.getElementById('tabelBody').addEventListener('click', function(e) {
+      if (e.target.classList.contains('btn-remove')) {
+          e.target.parentElement.parentElement.remove();
+      }
+    });    
+    </script>    
+
+    <script>
+      $(document).ready(function() {
+          $('#pilihan').change(function() {
+              var pilihan = $(this).val();
+              if (pilihan === 'X PPLG') {
+              $('#pilihan-1').removeClass('d-none');
+              $('#pilihan-2').addClass('d-none');
+              $('#pilihan-3').addClass('d-none');
+              $('#pilihan-4').addClass('d-none');
+              $('#pilihan-5').addClass('d-none');
+              } else if (pilihan === '2') {
+              $('#pilihan-1').addClass('d-none');
+              $('#pilihan-2').removeClass('d-none');
+              $('#pilihan-3').addClass('d-none');
+              $('#pilihan-4').addClass('d-none');
+              $('#pilihan-5').addClass('d-none');
+              } else if (pilihan === '3') {
+              $('#pilihan-1').addClass('d-none');
+              $('#pilihan-2').addClass('d-none');
+              $('#pilihan-3').removeClass('d-none');
+              $('#pilihan-4').addClass('d-none');
+              $('#pilihan-5').addClass('d-none');
+              } else if (pilihan === '4') {
+              $('#pilihan-1').addClass('d-none');
+              $('#pilihan-2').addClass('d-none');
+              $('#pilihan-3').addClass('d-none');
+              $('#pilihan-4').removeClass('d-none');
+              $('#pilihan-5').addClass('d-none');
+              } else if (pilihan === '5') {
+              $('#pilihan-1').addClass('d-none');
+              $('#pilihan-2').addClass('d-none');
+              $('#pilihan-3').addClass('d-none');
+              $('#pilihan-4').addClass('d-none');
+              $('#pilihan-5').removeClass('d-none');
+              } else {
+              $('#pilihan-1').addClass('d-none');
+              $('#pilihan-2').addClass('d-none');
+              $('#pilihan-3').addClass('d-none');
+              $('#pilihan-4').addClass('d-none');
+              $('#pilihan-5').addClass('d-none');
+              }
+          });
+      });
+    </script>    
+  </body>
+</html>

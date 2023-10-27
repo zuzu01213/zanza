@@ -1,0 +1,200 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jQuery/jQuery.js"></script>
+    <style>
+        div {
+            cursor: pointer;
+        }
+        #boxes_Wraps{
+            background: grey;
+            width: 100px;
+            height: 100px;
+            padding: 10px;
+            border: 5px solid rgb(98, 12, 22);
+            margin: 10px;
+        }
+        .change {
+            background-color: yellow;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>Belajar JQuery!!</h1>
+    <div id="box1">Box 1</div>
+
+    <div id="boxes_Wraps">
+        <div class="boxes">Baris Pertama</div>
+        <div class="boxes">Baris Dua</div>
+        <div class="boxes">Baris Dua Koma Lima</div>
+        <div class="boxes">Baris Ketiga</div>
+    </div>
+
+    <form>
+        <input type="text" id="inputText">
+        <input type="submit">
+    </form>
+
+    <button id="btn1">Show</button>
+    <button id="btn2">Hide</button>
+    <button id="btn3">Toggle</button>
+    <button id="btn4">Stop</button>
+
+    <ul><li>List Pertama</li></ul>
+
+    <ul>
+        <li>Belajar!</li>
+        <li>html</li>
+        <li id="css">css</li>
+        <li>jquery</li>
+        <li id="db">database</li>
+
+    <div>
+        <p>Paragraph dalam</p>
+        <span>Span dalam</span>
+    </div>
+    <span>Span luar</span>
+    </ul>
+</body>
+<script>
+    $(document).ready(function(){
+
+        $('h1').css('color', 'blue');
+        $('#box1').css('color', 'brown');
+        $('.boxes:first').css('color', 'green');
+        $('.boxes:eq(1)').css('color', 'pink');    
+        $('.boxes:eq(2)').css('color', 'orange');
+        $('.boxes:eq(3)').css('color', 'red');
+
+        // ---- event ----
+
+        $('h1').click(function(){
+            // $('h1').css({
+            //     'color': 'red',
+            //     'fontsize' : '20px',
+            //     'backgroundColor' : 'pink',
+            
+            // });
+            $('h1').toggleClass('change');
+        });
+
+        $('h1').mouseenter(function(){
+            $('h1').css('color', 'brown');
+        });
+
+        $('h1').mouseleave(function(){
+            $('h1').css('color', 'blue');
+        });
+
+        $('.boxes').mouseenter(function(){
+            $(this).css('color', 'blue');
+        });
+
+        $('.boxes').click(function(){
+            $(this).css('color', 'purple');
+        });
+
+        // Get dan Set nilai
+
+        $('form').submit(function(){
+            alert($('#inputText').val()  )
+            $('h1').text();
+        });
+
+        // mencegah sifat
+        event.preventDefault();
+
+       
+    });
+
+    // --------menambahkan dan menghapus----------
+    // append prepend | after before
+    $('#boxes_Wraps').before('<div>Halo</div>');
+
+    // remove and empty
+    //  $('#boxes_Wraps').remove();
+
+    // dimensi
+    //innerWidht -> kontent + padding
+    //outerwidht -> kontent + padding + border
+        // (true) -> + margin
+   var nilai = $('#boxes_Wraps').height(110).width(130);
+   // $('#box1').text(nilai);
+
+//    $('#btn1').click(function(){
+//         $('#boxes_Wraps').show(); 
+//     });
+
+//     $('#btn2').click(function(){
+//          $('#boxes_Wraps').hide();
+     
+//     });
+
+//     $('#btn3').click(function(){
+//          $('#boxes_Wraps').toggle();
+     
+//     });
+
+
+    // $('#btn1').click(function(){
+    //     $('#boxes_Wraps').fadeIn(); 
+    // });
+
+    // $('#btn2').click(function(){
+    //      $('#boxes_Wraps').fadeOut(2000);
+     
+    // });
+
+    // $('#btn3').click(function(){
+    //      $('#boxes_Wraps').fadeTo(2000, 0.5);
+     
+    // });
+
+    $('#btn1').click(function(){
+        $('#boxes_Wraps').slideDown(2000, function(){
+            alert('Selesai!');
+        }); 
+    });
+
+    $('#btn2').click(function(){
+         $('#boxes_Wraps').slideUp(2000).fadeIn(2000).fadeTo(2000, );
+     
+    });
+
+    $('#btn3').click(function(){
+         $('#boxes_Wraps').slideToggle();
+     
+    });
+
+    
+    $('#btn4').click(function(){
+         $('#boxes_Wraps').stop();
+     
+    });
+
+
+    $(document).ready(function(){
+        // traversing
+        // $('li').first().css('color' , 'lightpink')
+        // $('li').eq(1).css('color' , 'blue')
+        // $('li').eq(2).css('color' , 'brown')
+        // $('li').eq(3).css('color' , 'orange')    
+        // $('li').last().css('color' , 'green')
+
+        // $('li').filter('#css').css('fontSize' , '25px');
+        // $('li').not('#css').css('background' , 'purple');
+
+        // $('li').siblings().css('fontSize' , '20px');
+        // $('li').nextUntil('#db').css('color' , 'red');
+
+        // $('ul').find('span').css('color', 'red'); 
+        
+        $('#css').parentsUntil('div').css('border', '2px solid purple'); 
+    })
+</script>
+
+</html>
